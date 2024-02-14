@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Serial Numbers</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Generated Serial Numbers</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Lots</th>
+                    <th scope="col">Bundle ID</th>
+                    <th scope="col">Serial Numbers</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for serial_number in serial_numbers %}
+                <tr>
+                    <td>{{ product_name }}</td>
+                    <td>{{ lots }}</td>
+                    <td>{{ bundle_id }}</td>
+                    <td>
+                        
+                            {{ serial_number }} <br>
+                        
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</body>
+</html>

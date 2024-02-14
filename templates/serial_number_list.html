@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Serial Numbers List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Generated Serial Numbers List</h1>
+        
+        <!-- Search Form -->
+        <form method="GET" action="{% url 'serial_number_list' %}">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search_query" placeholder="Search by Serial Number">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Lots</th>
+                    <th scope="col">Bundle ID</th>
+                    <th scope="col">Serial Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for serial_number in serial_numbers %}
+                <tr>
+                    <td>{{ serial_number.product_name }}</td>
+                    <td>{{ serial_number.lots }}</td>
+                    <td>{{ serial_number.bundle_id }}</td>
+                    <td>{{ serial_number.serial_number }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No serial numbers found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
